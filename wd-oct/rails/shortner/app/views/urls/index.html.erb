@@ -1,0 +1,11 @@
+<%if @urls.empty?%>
+<p>No Data is Found<p>
+  <%else%>
+<ol>
+<%@urls.each do |url|%>
+<li>Original URl:<%=url.original_url%></br>Short Url:<%= url.short_url %></br> Number of Clicks:<%= url.click%></br><%= link_to "Delete", url_path(url.id), method: :delete, data: {confirm: "Are You Sure"}%></li>
+  <%end%>
+</ol>
+<%end%>
+
+<%= link_to "Convert Urls To Short?", new_url_path%>
